@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width = device-width, initial-scale=1.0">
+  <title>SchoolScope AI</title>
+  <link href="/assets/calendar.css" rel="stylesheet" crossorigin="anonymous">
+  <!-- Syncfusion EJ2 Schedule CSS -->
+  <link href="https://cdn.syncfusion.com/ej2/20.1.55/material.css" rel="stylesheet">
+  <!-- Syncfusion EJ2 Base, Buttons, and Schedule JS -->
+  <script src="https://cdn.syncfusion.com/ej2/20.1.55/dist/ej2.min.js"></script>
+  <script>
+
+    ej.base.registerLicense('<%= licenseKey %>');
+    document.addEventListener('DOMContentLoaded', function () {
+      // 引入 Syncfusion Schedule 组件
+      const { Schedule, Day, Week, WorkWeek, Month, Agenda } = ej.schedule;
+      
+      // 初始化 Schedule 组件
+      let scheduleObj = new Schedule({
+        height: '550px',
+        selectedDate: new Date(),
+        eventSettings: { dataSource: [] }, // 你的数据源
+        allowAdding: false, // 禁用添加新事件功能
+        views: ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda']
+      });
+
+      scheduleObj.appendTo('#schedule');
+    });
+  </script>
+</head>
+
+<body class="d-flex flex-column vh-100">
+  <div class="mt-5 px-5">
