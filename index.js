@@ -4,6 +4,7 @@ require("dotenv").config();
 const port = process.env.PORT || 2000;
 const { registerLicense } = require("@syncfusion/ej2-base");
 const eventModel = require("./database/schemas/events.js");
+const courseModel = require("./database/schemas/courses.js")
 
 /**
  * Imported Modules
@@ -55,6 +56,14 @@ app.get("/events", async (req, res) => {
   }
 });
 
+app.get("/courses", async (req, res) => {
+  try {
+    const courses = await courseModel.find();
+    res.json(courses);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 
 app.set("view engine", "ejs");
 

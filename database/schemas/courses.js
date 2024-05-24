@@ -7,8 +7,8 @@ const coursesSchema = new mongoose.Schema({
   EndTime: Date,
   RecurrenceRule: String,
   CategoryColor: String,
-  ProjectId: Number,
-  TaskId: Number
+  departmentId: Number,
+  instructorId: Number,
 });
 
 const CoursesModel = mongoose.model("courses", coursesSchema);

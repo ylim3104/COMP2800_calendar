@@ -1,7 +1,7 @@
 
 async function fetchEvents() {
   const [coursesResponse, eventsResponse] = await Promise.all([
-    fetch("/defaultData/courses.json"),
+    fetch("/courses"),
     fetch("/events"),
   ]);
 
@@ -15,17 +15,19 @@ fetchEvents().then((plan) => {
     width: "100%",
     height: "650px",
     currentView: "Month",
+    allowEditing: false,
     enableAdaptiveUI: true,
+    readonly: true, // Setting readonly to true disables editing and adding events
     group: {
-      resources: ["Projects", "Categories"],
+      resources: ["departments", "instructors"],
     },
     resources: [
       {
-        field: "ProjectId",
-        title: "Choose Project",
-        name: "Projects",
+        field: "departmentId",
+        title: "Choose Department",
+        name: "departments",
         dataSource: [
-          { text: "PROJECT 1", id: 1, color: "#357cd2" },
+          { text: "Computing&IT", id: 1, color: "#357cd2" },
           { text: "PROJECT 2", id: 2, color: "#56ca85" },
           { text: "PROJECT 3", id: 3, color: "#df5286" },
         ],
@@ -34,13 +36,19 @@ fetchEvents().then((plan) => {
         colorField: "color",
       },
       {
-        field: "TaskId",
-        title: "Category",
-        name: "Categories",
+        field: "instructorId",
+        title: "instructor",
+        name: "instructors",
         allowMultiple: true,
         dataSource: [
-          { text: "Nancy", id: 1, groupId: 1, color: "#df5286" },
-          { text: "Steven", id: 2, groupId: 1, color: "#7fa900" },
+          { text: "Thorsten", id: 1, groupId: 1, color: "#df5286" },
+          { text: "Rahul", id: 2, groupId: 1, color: "#7fa900" },
+          { text: "Simin", id: 3, groupId: 1, color: "#7fa900" },
+          { text: "Arron", id: 4, groupId: 1, color: "#7fa900" },
+          { text: "Bruce", id: 5, groupId: 1, color: "#7fa900" },
+          { text: "Maryam", id: 6, groupId: 1, color: "#7fa900" },
+          { text: "Carly", id: 7, groupId: 1, color: "#7fa900" },
+          { text: "Patrick", id: 8, groupId: 1, color: "#7fa900" },
           { text: "Robert", id: 3, groupId: 2, color: "#ea7a57" },
           { text: "Smith", id: 4, groupId: 2, color: "#5978ee" },
           { text: "Micheal", id: 5, groupId: 3, color: "#df5286" },
