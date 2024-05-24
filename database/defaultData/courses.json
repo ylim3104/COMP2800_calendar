@@ -1,0 +1,10 @@
+[
+  {
+    "Id": 1,
+    "Subject": "COMP 1800",
+    "StartTime": "2024-01-09T08:30:00.000",
+    "EndTime": "2024-01-09T10:30:00.000",
+    "RecurrenceRule": "FREQ=WEEKLY;INTERVAL=1;BYDAY=TU;UNTIL=20240419T235959Z",
+    "CategoryColor": "#357cd2"
+  }
+]

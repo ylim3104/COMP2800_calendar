@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-require("./schemas/defaultEvent");
+require("./schemas/courses");
 
 require("dotenv").config();
 const mongodb_host = process.env.MONGODB_HOST;

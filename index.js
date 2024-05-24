@@ -13,6 +13,7 @@ const licenseKey = process.env.ESSENTIAL_STUDIO_KEY;
 registerLicense("licenseKey");
 
 app.use(express.static(__dirname + "/public")); // Serve static files from the "public" directory
+app.use(express.static(__dirname + "/database/defaultData"));
 
 app.use(express.urlencoded({ extended: false })); // To parse URL-encoded bodies
 
@@ -49,6 +50,7 @@ app.get("/", async (req, res) => {
 //     res.status(500).send(error);
 //   }
 // });
+
 
 app.set("view engine", "ejs");
 
